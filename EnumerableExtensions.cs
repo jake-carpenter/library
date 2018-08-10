@@ -1,7 +1,10 @@
 public static class EnumerablExtensions
 {
-    public static IEnumerable<T> AsNullSafe(IEnumerable<T> original)
+    public static class EnumerablExtensions 
     {
-        return original != null ? original : new T[0];
+        public static IEnumerable<T> AsNullSafe<T>(this IEnumerable<T> original) 
+        {
+          return original ?? (new T[0]);
+        }
     }
 }
